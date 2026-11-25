@@ -11,22 +11,25 @@ concurrency:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
       - uses: actions/cache@v4
         with:
           path: state.json
-          key: backlink-state-v2-${{ github.run_id }}-${{ github.run_attempt }}
+          key: backlink-state-v3-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
+            backlink-state-v3-
             backlink-state-v2-
-      - run: python3 -m py_compile bot_v2.py
-      - run: python3 bot_v2.py
+      - run: python3 -m py_compile bot_v2.py bot_v3.py
+      - run: python3 bot_v3.py
       - uses: actions/upload-artifact@v5
         with:
           name: backlink-report
           path: |
             report.csv
             opportunities.csv
+            verified-links.csv
+            discovery-status.txt
             state.json
           retention-days: 30
