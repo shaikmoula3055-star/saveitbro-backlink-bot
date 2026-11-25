@@ -17,13 +17,14 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: state.json
-          key: backlink-state-v31-${{ github.run_id }}-${{ github.run_attempt }}
+          key: backlink-state-v32-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
+            backlink-state-v32-
             backlink-state-v31-
             backlink-state-v3-
             backlink-state-v2-
-      - run: python3 -m py_compile bot_v2.py bot_v31.py
-      - run: python3 bot_v31.py
+      - run: python3 -m py_compile bot_v2.py bot_v32.py
+      - run: python3 bot_v32.py
       - uses: actions/upload-artifact@v5
         with:
           name: backlink-report
@@ -32,5 +33,6 @@ jobs:
             opportunities.csv
             verified-links.csv
             discovery-status.txt
+            outreach-drafts.md
             state.json
           retention-days: 30
