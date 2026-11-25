@@ -1,6 +1,11 @@
 name: Daily backlink audit
 on:
   workflow_dispatch:
+    inputs:
+      submit_free:
+        description: 'Submit once to QuestStack free queue (no paid extras)'
+        type: boolean
+        default: false
   schedule:
     - cron: '30 0 * * *'
 permissions:
@@ -28,6 +33,10 @@ jobs:
             backlink-state-v2-
       - run: python3 -m py_compile bot_v2.py bot_v33.py
       - run: python3 bot_v33.py
+      - run: python3 submit_v4.py
+        env:
+          ALLOW_SUBMIT: ${{ inputs.submit_free }}
+          CONTACT_EMAIL: ${{ secrets.SUBMISSION_EMAIL }}
       - uses: actions/upload-artifact@v5
         with:
           name: backlink-report
@@ -37,6 +46,7 @@ jobs:
             verified-links.csv
             discovery-status.txt
             outreach-drafts.md
+            submission-result.json
             submission-tracker.json
             state.json
           retention-days: 30
