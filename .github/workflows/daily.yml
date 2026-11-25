@@ -5,15 +5,28 @@ on:
     - cron: '30 0 * * *'
 permissions:
   contents: read
+concurrency:
+  group: backlink-audit
+  cancel-in-progress: false
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - run: python3 bot.py
-      - uses: actions/upload-artifact@v4
+      - uses: actions/checkout@v5
+      - uses: actions/cache@v4
+        with:
+          path: state.json
+          key: backlink-state-v2-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            backlink-state-v2-
+      - run: python3 -m py_compile bot_v2.py
+      - run: python3 bot_v2.py
+      - uses: actions/upload-artifact@v5
         with:
           name: backlink-report
-          path: report.csv
+          path: |
+            report.csv
+            opportunities.csv
+            state.json
           retention-days: 30
