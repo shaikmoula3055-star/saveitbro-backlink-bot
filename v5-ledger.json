@@ -11,10 +11,37 @@
     "https://alternativeto.net/": {
       "status": "unverified: HTTPError"
     },
+    "https://launchpedia.co/submit": {
+      "policy_links": [],
+      "status": "manual eligibility review required",
+      "url": "https://launchpedia.co/submit/"
+    },
+    "https://startup88.typeform.com/to/CRjWqM": {
+      "status": "unverified: HTTPError"
+    },
+    "https://startupcollections.com/submit-product": {
+      "policy_links": [],
+      "status": "manual eligibility review required",
+      "url": "https://startupcollections.com/submit-product/"
+    },
     "https://startupstash.com/": {
       "policy_links": [],
       "status": "manual eligibility review required",
       "url": "https://startupstash.com/"
+    },
+    "https://www.dropyourai.com/submit-tool": {
+      "policy_links": [
+        "https://www.dropyourai.com/pricing#submit",
+        "https://www.dropyourai.com/pricing#submit",
+        "https://www.dropyourai.com/pricing#submit",
+        "https://www.dropyourai.com/pricing#submit",
+        "https://www.dropyourai.com/pricing#submit"
+      ],
+      "status": "manual eligibility review required",
+      "url": "https://www.dropyourai.com/pricing"
+    },
+    "https://www.futuretools.io/submit-a-tool": {
+      "status": "unverified: HTTPError"
     },
     "https://www.indiehackers.com/": {
       "policy_links": [
