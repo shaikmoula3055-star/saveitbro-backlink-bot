@@ -1,0 +1,34 @@
+{
+  "candidates": {
+    "https://aitoolsdirectory.com/submit-tool": {
+      "policy_links": [
+        "https://aitoolsdirectory.com/submit-tool",
+        "https://aitoolsdirectory.com/submit-tool"
+      ],
+      "status": "manual eligibility review required",
+      "url": "https://aitoolsdirectory.com/submit-tool"
+    },
+    "https://alternativeto.net/": {
+      "status": "unverified: HTTPError"
+    },
+    "https://startupstash.com/": {
+      "policy_links": [],
+      "status": "manual eligibility review required",
+      "url": "https://startupstash.com/"
+    },
+    "https://www.indiehackers.com/": {
+      "policy_links": [
+        "https://www.indiehackers.com/new-post"
+      ],
+      "status": "manual eligibility review required",
+      "url": "https://www.indiehackers.com/"
+    },
+    "https://www.launchingnext.com/": {
+      "policy_links": [],
+      "status": "manual eligibility review required",
+      "url": "https://www.launchingnext.com/"
+    }
+  },
+  "observed_links": {},
+  "publications": {}
+}
