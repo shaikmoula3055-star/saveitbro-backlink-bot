@@ -1,43 +1,50 @@
-name: Daily backlink audit
+name: Daily backlink audit V5
 on:
   workflow_dispatch:
-    inputs:
-      submit_free:
-        description: 'Submit once to QuestStack free queue (no paid extras)'
-        type: boolean
-        default: false
   schedule:
     - cron: '30 0 * * *'
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: backlink-audit
   cancel-in-progress: false
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: main
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - uses: actions/cache@v4
         with:
           path: |
             state.json
             submission-tracker.json
-          key: backlink-state-v33-${{ github.run_id }}-${{ github.run_attempt }}
+          key: backlink-state-v5-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
+            backlink-state-v5-
             backlink-state-v33-
             backlink-state-v32-
-            backlink-state-v31-
-            backlink-state-v3-
-            backlink-state-v2-
-      - run: python3 -m py_compile bot_v2.py bot_v33.py
-      - run: python3 bot_v33.py
-      - run: python3 submit_v4.py
+      - run: python3 -m py_compile bot_v2.py bot_v33.py bot_v5.py
+      - run: python3 bot_v5.py
         env:
-          ALLOW_SUBMIT: ${{ inputs.submit_free }}
-          CONTACT_EMAIL: ${{ secrets.SUBMISSION_EMAIL }}
+          BLOGGER_TOKEN: ${{ secrets.BLOGGER_TOKEN }}
+          BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
+          WORDPRESS_TOKEN: ${{ secrets.WORDPRESS_TOKEN }}
+          WORDPRESS_SITE_ID: ${{ secrets.WORDPRESS_SITE_ID }}
+      - name: Persist ledger
+        if: always()
+        run: |
+          if test -f v5-ledger.json; then
+            git add v5-ledger.json
+            git diff --cached --quiet || (git commit -m "Update V5 backlink ledger" && git push)
+          fi
       - uses: actions/upload-artifact@v5
+        if: always()
         with:
           name: backlink-report
           path: |
@@ -46,7 +53,6 @@ jobs:
             verified-links.csv
             discovery-status.txt
             outreach-drafts.md
-            submission-result.json
-            submission-tracker.json
-            state.json
+            v5-report.json
+            v5-ledger.json
           retention-days: 30
