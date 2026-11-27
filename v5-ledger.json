@@ -11,10 +11,24 @@
     "https://alternativeto.net/": {
       "status": "unverified: HTTPError"
     },
+    "https://joinly.xyz/submit-startup": {
+      "policy_links": [],
+      "status": "manual eligibility review required",
+      "url": "https://joinly.xyz/submit-startup"
+    },
     "https://launchpedia.co/submit": {
       "policy_links": [],
       "status": "manual eligibility review required",
       "url": "https://launchpedia.co/submit/"
+    },
+    "https://phyco.org/submit": {
+      "policy_links": [
+        "https://phyco.org/submit",
+        "https://phyco.org/submit/ai",
+        "https://phyco.org/submit"
+      ],
+      "status": "manual eligibility review required",
+      "url": "https://phyco.org/submit"
     },
     "https://startup88.typeform.com/to/CRjWqM": {
       "status": "unverified: HTTPError"
@@ -28,6 +42,29 @@
       "policy_links": [],
       "status": "manual eligibility review required",
       "url": "https://startupstash.com/"
+    },
+    "https://thesaasdir.com/submit": {
+      "policy_links": [
+        "https://thesaasdir.com/submit/",
+        "https://thesaasdir.com/submit/",
+        "https://thesaasdir.com/submit/"
+      ],
+      "status": "manual eligibility review required",
+      "url": "https://thesaasdir.com/submit/"
+    },
+    "https://twelve.tools/submit-your-tool": {
+      "policy_links": [
+        "https://twelve.tools/submit"
+      ],
+      "status": "manual eligibility review required",
+      "url": "https://twelve.tools/submit-your-tool"
+    },
+    "https://www.aitoolzdir.com/submit": {
+      "policy_links": [
+        "https://www.aitoolzdir.com/submit"
+      ],
+      "status": "manual eligibility review required",
+      "url": "https://www.aitoolzdir.com/submit"
     },
     "https://www.dropyourai.com/submit-tool": {
       "policy_links": [
