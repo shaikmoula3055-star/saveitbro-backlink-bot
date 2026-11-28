@@ -21,6 +21,14 @@
       "status": "manual eligibility review required",
       "url": "https://launchpedia.co/submit/"
     },
+    "https://onepagelove.com/submit": {
+      "policy_links": [
+        "https://onepagelove.com/submit#submit-rules",
+        "https://onepagelove.com/submit"
+      ],
+      "status": "manual eligibility review required",
+      "url": "https://onepagelove.com/submit"
+    },
     "https://phyco.org/submit": {
       "policy_links": [
         "https://phyco.org/submit",
@@ -77,6 +85,12 @@
       "status": "manual eligibility review required",
       "url": "https://www.dropyourai.com/pricing"
     },
+    "https://www.eu-startups.com/directory": {
+      "status": "unverified: HTTPError"
+    },
+    "https://www.f6s.com/directory/companies": {
+      "status": "unverified: HTTPError"
+    },
     "https://www.futuretools.io/submit-a-tool": {
       "status": "unverified: HTTPError"
     },
@@ -91,6 +105,18 @@
       "policy_links": [],
       "status": "manual eligibility review required",
       "url": "https://www.launchingnext.com/"
+    },
+    "https://www.softpedia.com/user/submit.shtml": {
+      "status": "unverified: HTTPError"
+    },
+    "https://www.somuch.com/submit-links": {
+      "policy_links": [
+        "https://www.somuch.com/submit-links/",
+        "https://www.somuch.com/submit-links/",
+        "https://www.somuch.com/submit-links/"
+      ],
+      "status": "manual eligibility review required",
+      "url": "https://www.somuch.com/submit-links/"
     }
   },
   "observed_links": {},
